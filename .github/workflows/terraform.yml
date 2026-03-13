@@ -1,7 +1,7 @@
 name: Terraform AWS Deploy
 on:
   push:
-    
+  
 jobs:
   terraform:
     runs-on: self-hosted
