@@ -1,10 +1,8 @@
 name: Terraform AWS Deploy
-
 on:
   push:
-    branches:
-      - main
-
+    paths:
+      - "main.tf"
 jobs:
   terraform:
     runs-on: self-hosted
