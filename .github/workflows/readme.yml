@@ -1,0 +1,35 @@
+name: Generate README
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create README
+        run: |
+          echo "# Terraform Deployment Project" > README.md
+          echo "" >> README.md
+          echo "## Description" >> README.md
+          echo "This project deploys infrastructure using Terraform and GitHub Actions." >> README.md
+          echo "" >> README.md
+          echo "## Tools Used" >> README.md
+          echo "- Terraform" >> README.md
+          echo "- AWS" >> README.md
+          echo "- GitHub Actions" >> README.md
+
+      - name: Commit README
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add README.md
+          git commit -m "Auto update README" || echo "No changes"
+          git push
