@@ -1,0 +1,13 @@
+name: CI Pipeline
+
+on: push
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Script
+        run: echo "Hello from self-hosted runner"
